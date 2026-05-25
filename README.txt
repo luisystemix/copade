@@ -1,0 +1,16 @@
+La Fundación COPADES que significa comunidad, participación y desarrollo, domiciliada en la ciudad de La Paz, Bolivia, fue fundada el 14 de octubre de 2016.
+Su finalidad es trabajar por y con la población vulnerable y en situación de desventaja social, aplicando metodologías y estrategias específicas a problemáticas adversas identificadas a través de un análisis, investigación y documentación resultante de la vivencia, experiencias profesionales y comunitarias, para promover el acceso a una vida digna y de ejercicios de derechos humanos.
+La fundación COPADES tiene como objetivo general el de contribuir a la aplicación de políticas, planes, proyectos y programas que coadyuven al desarrollo integral y sostenible de personas en desventaja social, para promover su reintegración y el ejercicio pleno de sus derechos humanos.
+Fortalecer la participación ciudadana y el ejercicio pleno de derechos de poblaciones en riesgo, víctimas de violencia, exclusión y marginación social, a través de la promoción del desarrollo integral y sostenible.
+Nos constituimos en una institución sólida que posibilite el desarrollo integral, la participación ciudadana y el ejercicio de los derechos de personas en situación de violencia, marginación y exclusión social a través del abordaje integral, multidisciplinario e interinstitucional coordinado.
+Abordamos los problemas sociales con una mirada creativa, flexible y orientada al futuro. Creemos que el impacto se multiplica cuando trabajamos en red; por ello, fomentamos alianzas estratégicas con gobiernos, empresas y la sociedad civil, combinando saberes y recursos para diseñar soluciones ágiles, eficientes y de alto impacto comunitario.
+Nuestras acciones se articulan en ejes estratégicos que fortalecen el desarrollo integral de las comunidades.
+Orientada al pilar de Comunidad, esta línea se enfoca en revitalizar los lazos sociales, rescatar la identidad local y construir redes de apoyo mutuo para mejorar la convivencia y resolver pacíficamente los conflictos internos.
+Diseñada para activar la Participación, se centra en la capacitación técnico-política de líderes locales, mujeres y jóvenes, asegurando su inclusión en la toma de decisiones públicas, el control social y la gestión de sus propios recursos.
+Alineada con el Desarrollo, esta línea impulsa la soberanía alimentaria, el emprendimiento comunitario y los negocios verdes, implementando soluciones económicas que respeten el medio ambiente y generen ingresos dignos a largo plazo.
+Una línea transversal que fomenta la formación continua mediante talleres prácticos, programas de alfabetización digital y educación financiera, dotando a la población de herramientas técnicas para autogestionar su progreso.
+Dedicada a la mejora del entorno físico, trabaja junto a las bases en el diseño y optimización de espacios públicos, acceso a servicios básicos y resiliencia ante el cambio climático, garantizando condiciones de vida dignas para la comunidad.
+Construcción y funcionamiento de un albergue para adultos mayores de la Sociedad San José, en la ciudad de La Paz.
+Número de beneficiarios: 10.000 adultos mayores al año.
+Construcción y funcionamiento de un albergue para niños con cáncer, en la ciudad de La Paz.
+Número de beneficiarios: 11.000 niños con cáncer al año.
