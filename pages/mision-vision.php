@@ -9,14 +9,26 @@
 <section class="section">
 <div class="container">
 
-<h2>Misión y Visión</h2>
+<h2>Misión</h2>
 
 <p>
-La Fundación COPADES que significa comunidad, participación y desarrollo, domiciliada en la ciudad de La Paz, Bolivia, fue fundada el 14 de octubre de 2016.
-Su finalidad es trabajar por y con la población vulnerable y en situación de desventaja social, aplicando metodologías y estrategias específicas a problemáticas adversas identificadas a través de un análisis, investigación y documentación resultante de la vivencia, experiencias profesionales y comunitarias, para promover el acceso a una vida digna y de ejercicios de derechos humanos.
-La fundación COPADES tiene como objetivo general el de c
+Fortalecer la participación ciudadana y el ejercicio pleno de derechos de poblaciones en riesgo, 
+víctimas de violencia, exclusión y marginación social, a través de la promoción del desarrollo 
+integral y sostenible.
 </p>
-
+<h2>Visión</h2>
+<p>
+Nos constituimos en una institución sólida que posibilite el desarrollo integral, la participación 
+ciudadana y el ejercicio de los derechos de personas en situación de violencia, marginación y exclusión 
+social a través del abordaje integral, multidisciplinario e interinstitucional coordinado. 
+</p>
+<h2>Valores</h2>
+<p>
+Abordamos los problemas sociales con una mirada creativa, flexible y orientada al futuro. 
+Creemos que el impacto se multiplica cuando trabajamos en red; por ello, fomentamos alianzas 
+estratégicas con gobiernos, empresas y la sociedad civil, combinando saberes y recursos para 
+diseñar soluciones ágiles, eficientes y de alto impacto comunitario.    
+</p>
 <div class="cards">
 
 <div class="card">

@@ -9,12 +9,16 @@
 <section class="section">
 <div class="container">
 
-<h2>Nosotros</h2>
+<h2>Proyectos en Ejecución</h2>
 
 <p>
-La Fundación COPADES que significa comunidad, participación y desarrollo, domiciliada en la ciudad de La Paz, Bolivia, fue fundada el 14 de octubre de 2016.
-Su finalidad es trabajar por y con la población vulnerable y en situación de desventaja social, aplicando metodologías y estrategias específicas a problemáticas adversas identificadas a través de un análisis, investigación y documentación resultante de la vivencia, experiencias profesionales y comunitarias, para promover el acceso a una vida digna y de ejercicios de derechos humanos.
-La fundación COPADES tiene como objetivo general el de c
+    📍  Construcción y funcionamiento de un albergue para adultos mayores de la Sociedad San José, 
+    en la ciudad de La Paz. Número de beneficiarios: 10.000 adultos mayores al año.
+</p>
+
+<p>
+    📍  Construcción y funcionamiento de un albergue para niños con cáncer, en la ciudad de La Paz.
+    Número de beneficiarios: 11.000 niños con cáncer al año.
 </p>
 
 <div class="cards">

@@ -37,6 +37,35 @@ transition:.3s;
 
 .menu a:hover{color:#009879;}
 
+.menu li{position:relative;}
+.menu li.has-submenu > a::after{
+    content:'▾';
+    margin-left:8px;
+    font-size:0.8rem;
+}
+.menu .submenu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:white;
+    padding:10px 0;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    min-width:220px;
+    z-index:20;
+    flex-direction:column;
+}
+.menu li:hover > .submenu{display:flex;}
+.menu .submenu li{width:100%;}
+.menu .submenu a{
+    display:block;
+    padding:10px 20px;
+    color:#333;
+    font-weight:500;
+}
+.menu .submenu a:hover{color:#009879;background:rgba(0,152,121,.05);}
+
 .btn-top{
 background:#009879;
 padding:14px 28px;
@@ -253,6 +282,13 @@ min-width:220px;
 .menu.active{display:flex;}
 .menu-toggle{display:block;}
 .btn-top{display:none;}
+.menu li.has-submenu > a::after{transform:none;}
+.menu .submenu{position:static;display:none;box-shadow:none;background:transparent;padding:0;margin:0;}
+.menu li.has-submenu.active > .submenu{display:flex;}
+.menu .submenu a{padding:10px 20px 10px 38px;}
+.menu li.has-submenu > a{display:flex;justify-content:space-between;align-items:center;}
+.menu li.has-submenu > a::after{content:'▸';transition:transform .3s;}
+.menu li.has-submenu.active > a::after{transform:rotate(90deg);}
 .hero h1{font-size:50px;}
 }
 

@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Por favor, ingresa un correo electrónico válido.';
     } else {
-        $to      = 'info@fundacioncopades.org';
+        $to      = 'info@fundacioncopade.com';
         $subject = "COPADES - $asunto";
         $body    = "Nombre: $nombre\nEmail: $email\nTeléfono: $telefono\n\nMensaje:\n$mensaje";
         $headers = "From: $email\r\nReply-To: $email";
@@ -49,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
                         <div>
-                            <strong>Dirección</strong>
-                            <p>La Paz, Bolivia</p>
+                            <strong>Dirección:</strong>
+                            <p>Avenida 16 de julio esquina Colombia. Edificio Cámara Nacional de Comercio piso 8 oficina 811</p> <p>La Paz - Bolivia</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -64,14 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <span class="contact-icon">📞</span>
                         <div>
                             <strong>Teléfono</strong>
-                            <p>+591 (2) 000-0000</p>
+                            <p>+591 72030460</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">🕐</span>
                         <div>
                             <strong>Horario</strong>
-                            <p>Lun – Vie, 9:00 – 17:00</p>
+                            <p>Lun – Vie, 8:30 – 18:30</p>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,17 @@ toggle.classList.toggle('active');
 });
 }
 
+const submenuLinks=document.querySelectorAll('.menu li.has-submenu > a');
+submenuLinks.forEach(link=>{
+    const parent=link.parentElement;
+    link.addEventListener('click',e=>{
+        if(window.innerWidth <= 992){
+            e.preventDefault();
+            parent.classList.toggle('active');
+        }
+    });
+});
+
 const images=[
 // 'assets/images/banner1.jpg',
 'assets/images/banner2.jpg'

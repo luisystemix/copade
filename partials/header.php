@@ -26,7 +26,16 @@
 <li><a href="<?= BASE_URL ?>">Inicio</a></li>
 <li><a href="<?= BASE_URL ?>pages/nosotros.php">Nosotros</a></li>
 <li><a href="<?= BASE_URL ?>pages/mision-vision.php">Misión y Visión</a></li>
-<li><a href="<?= BASE_URL ?>pages/ejes.php">Ejes Estratégicos</a></li>
+<li class="has-submenu">
+    <a href="<?= BASE_URL ?>pages/ejes.php">Ejes Estratégicos</a>
+    <ul class="submenu">
+        <li><a href="<?= BASE_URL ?>pages/ejes.php#gobernanzas">Gobernanzas y Cohesión</a></li>
+        <li><a href="<?= BASE_URL ?>pages/ejes.php#participacion">Participación y Liderazgo</a></li>
+        <li><a href="<?= BASE_URL ?>pages/ejes.php#desarrollo">Desarrollo Sostenible</a></li>
+        <li><a href="<?= BASE_URL ?>pages/ejes.php#educacion">Educación y Capacitación</a></li>
+        <li><a href="<?= BASE_URL ?>pages/ejes.php#infraestructura">Infraestructura y Hábitat</a></li>
+    </ul>
+</li>
 <li><a href="<?= BASE_URL ?>pages/noticias.php">Noticias</a></li>
 <li><a href="<?= BASE_URL ?>pages/contacto.php">Contacto</a></li>
 </ul>
