@@ -24,37 +24,37 @@
 </a>
 
 <nav>
-<ul class="menu" id="menu">
-<li><a href="<?= BASE_URL ?>">Inicio</a></li>
-<li class="has-submenu">
-    <a href="<?= BASE_URL ?>pages/quienessomos.php">¿Quienes Somos?</a>
-    <ul class="submenu">
-        <li><a href="<?= BASE_URL ?>pages/mision.php">Misión</a></li>
-        <li><a href="<?= BASE_URL ?>pages/vision.php">Visión</a></li>
-        <li><a href="<?= BASE_URL ?>pages/valores.php">Valores</a></li>
+    <ul class="menu" id="menu">
+    <li><a href="<?= BASE_URL ?>">Inicio</a></li>
+    <li class="has-submenu">
+        <a href="<?= BASE_URL ?>pages/quienessomos.php">¿Quienes Somos?</a>
+        <ul class="submenu">
+            <li><a href="<?= BASE_URL ?>pages/mision.php">Misión</a></li>
+            <li><a href="<?= BASE_URL ?>pages/vision.php">Visión</a></li>
+            <li><a href="<?= BASE_URL ?>pages/valores.php">Valores</a></li>
+        </ul>
+    </li>
+    <li class="has-submenu">
+        <a href="<?= BASE_URL ?>pages/ejesestrategicos.php">Ejes Estratégicos</a>
+        <ul class="submenu">
+            <li><a href="<?= BASE_URL ?>pages/gobernanza.php">Gobernanzas y Cohesión</a></li>
+            <li><a href="<?= BASE_URL ?>pages/participacion.php">Participación y Liderazgo</a></li>
+            <li><a href="<?= BASE_URL ?>pages/desarrollo.php">Desarrollo Sostenible</a></li>
+            <li><a href="<?= BASE_URL ?>pages/educacion.php">Educación y Capacitación</a></li>
+            <li><a href="<?= BASE_URL ?>pages/infraestructura.php">Infraestructura y Hábitat</a></li>
+        </ul>
+    </li>
+    
+    <li class="has-submenu">
+        <a href="#">Proyectos</a>
+        <ul class="submenu">
+            <li><a href="<?= BASE_URL ?>pages/enejecucion.php">En Ejecución</a></li>
+            <li><a href="#">Ejecutados</a></li>        
+        </ul>
+    </li>
+    <li><a href="<?= BASE_URL ?>pages/noticias.php">Noticias</a></li> 
+    <li><a href="<?= BASE_URL ?>pages/contacto.php">Contacto</a></li>
     </ul>
-</li>
-<li class="has-submenu">
-    <a href="<?= BASE_URL ?>pages/ejesestrategicos.php">Ejes Estratégicos</a>
-    <ul class="submenu">
-        <li><a href="<?= BASE_URL ?>pages/gobernanza.php">Gobernanzas y Cohesión</a></li>
-        <li><a href="<?= BASE_URL ?>pages/participacion.php">Participación y Liderazgo</a></li>
-        <li><a href="<?= BASE_URL ?>pages/desarrollo.php">Desarrollo Sostenible</a></li>
-        <li><a href="<?= BASE_URL ?>pages/educacion.php">Educación y Capacitación</a></li>
-        <li><a href="<?= BASE_URL ?>pages/infraestructura.php">Infraestructura y Hábitat</a></li>
-    </ul>
-</li>
-
-<li class="has-submenu">
-    <a href="#">Proyectos</a>
-    <ul class="submenu">
-        <li><a href="<?= BASE_URL ?>pages/enejecucion.php">En Ejecución</a></li>
-        <li><a href="#">Ejecutados</a></li>        
-    </ul>
-</li>
-<li><a href="<?= BASE_URL ?>pages/noticias.php">Noticias</a></li> 
-<li><a href="<?= BASE_URL ?>pages/contacto.php">Contacto</a></li>
-</ul>
 </nav>
 
 <a href="#" class="btn-top">¡Súmate!</a>
