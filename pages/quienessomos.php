@@ -2,7 +2,7 @@
 
 <section class="banner-page">
 <div class="container">
-<h1>¿Quienes Somos?</h1>
+<h1>¿Quiénes Somos?</h1>
 </div>
 </section>
 

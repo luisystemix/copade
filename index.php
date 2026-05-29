@@ -1,36 +1,7 @@
 <?php include 'partials/header.php'; ?>
+<hr>
 
-<section class="hero">
-
-<div class="slider"></div>
-<div class="overlay"></div>
-
-<div class="container hero-content">
-        <div class="hero-text">            
-            <br>
-            <h1>
-                Sumando esfuerzos <br>
-                <span class="green">y multiplicando</span><br>
-                <span class="orange">oportunidades</span><br>
-                para cambiar vidas.
-            </h1>
-
-            <div class="line"></div>
-
-            <p>
-                Trabajamos junto a las comunidades para <br>
-                construir un mundo más justo,
-                inclusivo y sostenible.
-            </br>
-
-            <!-- <div class="hero-buttons">
-                <a href="pages/nosotros.php" class="btn primary">CONOCE MÁS</a>
-                <a href="pages/ejes.php" class="btn secondary">NUESTROS PROGRAMAS</a>
-            </div> -->
-        </div>
-    </div>
-
-</section>
+<section class="hero" style="background: url('assets/images/banner_copade.jpeg') center/contain no-repeat;"></section>
 
 <section class="section">
     <div class="container">
