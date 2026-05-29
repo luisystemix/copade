@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded',()=>{
 
 const toggle=document.getElementById('menu-toggle');
@@ -22,9 +21,9 @@ submenuLinks.forEach(link=>{
     });
 });
 
+const base = window.BASE_URL || '/';
 const images=[
-// 'assets/images/banner1.jpg',
-'assets/images/banner_oficial.jpg'
+base + 'assets/images/banner_oficial.jpg'
 ];
 
 const slider=document.querySelector('.slider');
