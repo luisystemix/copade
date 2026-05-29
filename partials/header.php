@@ -11,6 +11,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -32,7 +34,6 @@
         <li><a href="<?= BASE_URL ?>pages/valores.php">Valores</a></li>
     </ul>
 </li>
-<!-- <li><a href="<?= BASE_URL ?>pages/nosotros.php">¿Quienes Somos?</a></li> -->
 <li class="has-submenu">
     <a href="<?= BASE_URL ?>pages/ejesestrategicos.php">Ejes Estratégicos</a>
     <ul class="submenu">
