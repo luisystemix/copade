@@ -24,7 +24,7 @@ submenuLinks.forEach(link=>{
 
 const images=[
 // 'assets/images/banner1.jpg',
-'assets/images/banner2.jpg'
+'assets/images/banner_oficial.jpg'
 ];
 
 const slider=document.querySelector('.slider');

@@ -24,24 +24,39 @@
 <nav>
 <ul class="menu" id="menu">
 <li><a href="<?= BASE_URL ?>">Inicio</a></li>
-<li><a href="<?= BASE_URL ?>pages/nosotros.php">Nosotros</a></li>
-<li><a href="<?= BASE_URL ?>pages/mision-vision.php">Misión y Visión</a></li>
 <li class="has-submenu">
-    <a href="<?= BASE_URL ?>pages/ejes.php">Ejes Estratégicos</a>
+    <a href="<?= BASE_URL ?>pages/quienessomos.php">¿Quienes Somos?</a>
     <ul class="submenu">
-        <li><a href="<?= BASE_URL ?>pages/ejes.php#gobernanzas">Gobernanzas y Cohesión</a></li>
-        <li><a href="<?= BASE_URL ?>pages/ejes.php#participacion">Participación y Liderazgo</a></li>
-        <li><a href="<?= BASE_URL ?>pages/ejes.php#desarrollo">Desarrollo Sostenible</a></li>
-        <li><a href="<?= BASE_URL ?>pages/ejes.php#educacion">Educación y Capacitación</a></li>
-        <li><a href="<?= BASE_URL ?>pages/ejes.php#infraestructura">Infraestructura y Hábitat</a></li>
+        <li><a href="<?= BASE_URL ?>pages/mision.php">Misión</a></li>
+        <li><a href="<?= BASE_URL ?>pages/vision.php">Visión</a></li>
+        <li><a href="<?= BASE_URL ?>pages/valores.php">Valores</a></li>
     </ul>
 </li>
-<li><a href="<?= BASE_URL ?>pages/noticias.php">Noticias</a></li>
+<!-- <li><a href="<?= BASE_URL ?>pages/nosotros.php">¿Quienes Somos?</a></li> -->
+<li class="has-submenu">
+    <a href="<?= BASE_URL ?>pages/ejesestrategicos.php">Ejes Estratégicos</a>
+    <ul class="submenu">
+        <li><a href="<?= BASE_URL ?>pages/gobernanza.php">Gobernanzas y Cohesión</a></li>
+        <li><a href="<?= BASE_URL ?>pages/participacion.php">Participación y Liderazgo</a></li>
+        <li><a href="<?= BASE_URL ?>pages/desarrollo.php">Desarrollo Sostenible</a></li>
+        <li><a href="<?= BASE_URL ?>pages/educacion.php">Educación y Capacitación</a></li>
+        <li><a href="<?= BASE_URL ?>pages/infraestructura.php">Infraestructura y Hábitat</a></li>
+    </ul>
+</li>
+
+<li class="has-submenu">
+    <a href="#">Proyectos</a>
+    <ul class="submenu">
+        <li><a href="<?= BASE_URL ?>pages/enejecucion.php">En Ejecución</a></li>
+        <li><a href="#">Ejecutados</a></li>        
+    </ul>
+</li>
+<li><a href="<?= BASE_URL ?>pages/noticias.php">Noticias</a></li> 
 <li><a href="<?= BASE_URL ?>pages/contacto.php">Contacto</a></li>
 </ul>
 </nav>
 
-<a href="<?= BASE_URL ?>pages/contacto.php" class="btn-top">¡Súmate!</a>
+<a href="#" class="btn-top">¡Súmate!</a>
 
 <div class="menu-toggle" id="menu-toggle">
 <span></span>
