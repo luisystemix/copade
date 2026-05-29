@@ -17,6 +17,20 @@ if (!$noticia) {
 
 $error = '';
 
+// Procesar eliminación de imagen de galería vía GET
+if (isset($_GET['delete_galeria']) && (int)$_GET['delete_galeria'] > 0) {
+    $galeriaId = (int)$_GET['delete_galeria'];
+    $img = $db->fetch("SELECT * FROM noticias_galeria WHERE id = ? AND noticia_id = ?", [$galeriaId, $id]);
+    if ($img) {
+        $imgPath = __DIR__ . '/../assets/uploads/' . $img['imagen'];
+        if (file_exists($imgPath)) unlink($imgPath);
+        $db->execute("DELETE FROM noticias_galeria WHERE id = ?", [$galeriaId]);
+        $_SESSION['success'] = 'Imagen de galería eliminada.';
+        header('Location: noticias_editar.php?id=' . $id);
+        exit;
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar CSRF
     if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'] ?? '')) {
@@ -25,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $titulo    = trim($_POST['titulo'] ?? '');
     $fecha     = $_POST['fecha'] ?? date('Y-m-d');
-    $resumen   = trim($_POST['resumen'] ?? '');
     $contenido = $_POST['contenido'] ?? '';
 
     if (!$error && (!$titulo || !$contenido)) {
@@ -35,15 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$error) {
         $imagenNombre = $noticia['imagen'];
 
-        // Procesar nueva imagen
+        // Procesar nueva imagen de portada
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
             $maxSize = 5 * 1024 * 1024;
 
             if (!in_array($_FILES['imagen']['type'], $allowedTypes)) {
-                $error = 'La imagen debe ser JPG, PNG, WebP o GIF.';
+                $error = 'La imagen de portada debe ser JPG, PNG, WebP o GIF.';
             } elseif ($_FILES['imagen']['size'] > $maxSize) {
-                $error = 'La imagen no debe superar los 5MB.';
+                $error = 'La imagen de portada no debe superar los 5MB.';
             } else {
                 // Eliminar imagen anterior
                 if ($noticia['imagen']) {
@@ -56,12 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $uploadPath = __DIR__ . '/../assets/uploads/' . $imagenNombre;
 
                 if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $uploadPath)) {
-                    $error = 'Error al subir la imagen.';
+                    $error = 'Error al subir la imagen de portada.';
                 }
             }
         }
 
-        // Eliminar imagen si se solicitó (solo si NO se subió una imagen nueva)
+        // Eliminar imagen de portada si se solicitó
         $subioImagenNueva = isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK;
         if (isset($_POST['eliminar_imagen']) && $noticia['imagen'] && !$error && !$subioImagenNueva) {
             $oldPath = __DIR__ . '/../assets/uploads/' . $noticia['imagen'];
@@ -71,15 +84,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!$error) {
             $db->execute(
-                "UPDATE noticias SET titulo = ?, fecha = ?, resumen = ?, contenido = ?, imagen = ? WHERE id = ?",
-                [$titulo, $fecha, $resumen, $contenido, $imagenNombre, $id]
+                "UPDATE noticias SET titulo = ?, fecha = ?, contenido = ?, imagen = ? WHERE id = ?",
+                [$titulo, $fecha, $contenido, $imagenNombre, $id]
             );
+
+            // Procesar nuevas imágenes de galería
+            if (!empty($_FILES['galeria']['name'][0])) {
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+                $maxSize = 5 * 1024 * 1024;
+
+                // Obtener el orden máximo actual
+                $maxOrden = $db->fetch("SELECT MAX(orden) as max_orden FROM noticias_galeria WHERE noticia_id = ?", [$id]);
+                $orden = ($maxOrden['max_orden'] ?? -1) + 1;
+
+                foreach ($_FILES['galeria']['name'] as $key => $name) {
+                    if ($_FILES['galeria']['error'][$key] !== UPLOAD_ERR_OK) continue;
+                    if (!in_array($_FILES['galeria']['type'][$key], $allowedTypes)) continue;
+                    if ($_FILES['galeria']['size'][$key] > $maxSize) continue;
+
+                    $ext = pathinfo($name, PATHINFO_EXTENSION);
+                    $galeriaNombre = uniqid('galeria_') . '.' . $ext;
+                    $uploadPath = __DIR__ . '/../assets/uploads/' . $galeriaNombre;
+
+                    if (move_uploaded_file($_FILES['galeria']['tmp_name'][$key], $uploadPath)) {
+                        $db->insert(
+                            "INSERT INTO noticias_galeria (noticia_id, imagen, orden) VALUES (?, ?, ?)",
+                            [$id, $galeriaNombre, $orden]
+                        );
+                        $orden++;
+                    }
+                }
+            }
+
             $_SESSION['success'] = 'Noticia actualizada exitosamente.';
             header('Location: noticias.php');
             exit;
         }
     }
 }
+
+// Obtener imágenes de galería
+$galeria = $db->fetchAll("SELECT * FROM noticias_galeria WHERE noticia_id = ? ORDER BY orden ASC", [$id]);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -183,6 +228,21 @@ body{
 .delete-img-label{
     display:flex;align-items:center;gap:6px;font-size:13px;color:#c00;cursor:pointer;margin-left:auto;
 }
+/* Galería actual */
+.current-gallery{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;margin-top:12px;
+}
+.gallery-item{
+    position:relative;border-radius:8px;overflow:hidden;border:2px solid #e0e0e0;aspect-ratio:4/3;
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+.gallery-item .del-btn{
+    position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;
+    background:rgba(255,0,0,.85);color:white;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:14px;
+    transition:.3s;text-decoration:none;
+}
+.gallery-item .del-btn:hover{background:#c00;transform:scale(1.1);}
 </style>
 </head>
 <body>
@@ -214,6 +274,12 @@ body{
         <a href="noticias.php" style="color:#888;text-decoration:none;font-size:14px;"><i class="fas fa-arrow-left"></i> Volver</a>
     </div>
 
+    <?php if (isset($_SESSION['success'])): ?>
+        <div style="background:rgba(0,152,121,.1);border:1px solid rgba(0,152,121,.2);color:#009879;padding:14px 20px;border-radius:12px;margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+            <i class="fas fa-check-circle"></i> <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+        </div>
+    <?php endif; ?>
+
     <?php if ($error): ?>
         <div class="error-msg"><i class="fas fa-exclamation-circle"></i> <?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
@@ -243,7 +309,7 @@ body{
                 <div class="current-image">
                     <img src="<?= BASE_URL ?>assets/uploads/<?= htmlspecialchars($noticia['imagen']) ?>" alt="Imagen actual">
                     <div class="img-info">
-                        <strong>Imagen actual</strong>
+                        <strong>Imagen de portada actual</strong>
                         <span><?= htmlspecialchars($noticia['imagen']) ?></span>
                     </div>
                     <label class="delete-img-label">
@@ -256,8 +322,27 @@ body{
         </div>
 
         <div class="form-group">
-            <label for="resumen">Resumen / Extracto</label>
-            <textarea id="resumen" name="resumen" placeholder="Breve resumen que aparecerá en la lista de noticias" rows="3"><?= htmlspecialchars($_POST['resumen'] ?? $noticia['resumen']) ?></textarea>
+            <label>Galería de imágenes actual</label>
+            <?php if (count($galeria) > 0): ?>
+            <div class="current-gallery">
+                <?php foreach ($galeria as $img): ?>
+                <div class="gallery-item">
+                    <img src="<?= BASE_URL ?>assets/uploads/<?= htmlspecialchars($img['imagen']) ?>" alt="Galería">
+                    <a href="noticias_editar.php?id=<?= $id ?>&delete_galeria=<?= $img['id'] ?>" class="del-btn" onclick="return confirm('¿Eliminar esta imagen de la galería?')"><i class="fas fa-times"></i></a>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php else: ?>
+            <p style="color:#aaa;font-size:14px;">No hay imágenes en la galería.</p>
+            <?php endif; ?>
+        </div>
+
+        <div class="form-group">
+            <label for="galeria">Agregar más imágenes a la galería</label>
+            <div class="file-input-wrapper">
+                <input type="file" id="galeria" name="galeria[]" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+            </div>
+            <div class="file-hint">Puede seleccionar varias imágenes. Se agregarán al final de la galería actual. Formatos: JPG, PNG, WebP, GIF. Máximo 5MB cada una.</div>
         </div>
 
         <div class="form-group">

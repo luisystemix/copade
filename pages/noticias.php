@@ -34,14 +34,11 @@ include __DIR__ . '/../partials/header.php';
                         <div class="news-card-date">
                             <i class="far fa-calendar-alt"></i>
                             <?= date('d', strtotime($noticia['fecha'])) ?>
-                            <span><?= strftime('%b', strtotime($noticia['fecha'])) ?></span>
+                            <span><?= date('M', strtotime($noticia['fecha'])) ?></span>
                         </div>
                     </div>
                     <div class="news-card-body">
                         <h3 class="news-card-title"><?= htmlspecialchars($noticia['titulo']) ?></h3>
-                        <?php if ($noticia['resumen']): ?>
-                            <p class="news-card-excerpt"><?= htmlspecialchars($noticia['resumen']) ?></p>
-                        <?php endif; ?>
                         <span class="news-card-more">Leer más <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>

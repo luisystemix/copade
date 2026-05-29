@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `id` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha` date NOT NULL,
-  `resumen` text COLLATE utf8mb4_unicode_ci,
   `contenido` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -33,8 +32,8 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla copade_db.noticias: ~0 rows (aproximadamente)
-INSERT INTO `noticias` (`id`, `titulo`, `fecha`, `resumen`, `contenido`, `imagen`, `created_at`, `updated_at`) VALUES
-	(1, 'Primera Noticia', '2026-05-29', 'Noticia Inicial, para la pagina web.', 'Es la pruab de corrida de la noticia inicial para <strong>mostrar</strong> mediante la <p>pagina web.</p>', 'noticia_6a19297bd931c.png', '2026-05-29 05:51:55', '2026-05-29 05:51:55');
+INSERT INTO `noticias` (`id`, `titulo`, `fecha`, `contenido`, `imagen`, `created_at`, `updated_at`) VALUES
+	(1, 'Primera Noticia', '2026-05-29', 'Es la pruab de corrida de la noticia inicial para <strong>mostrar</strong> mediante la <p>pagina web.</p>', 'noticia_6a19297bd931c.png', '2026-05-29 05:51:55', '2026-05-29 05:51:55');
 
 -- Volcando estructura para tabla copade_db.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -46,6 +45,18 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando estructura para tabla copade_db.noticias_galeria
+CREATE TABLE IF NOT EXISTS `noticias_galeria` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `noticia_id` int NOT NULL,
+  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orden` int NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `noticia_id` (`noticia_id`),
+  CONSTRAINT `noticias_galeria_ibfk_1` FOREIGN KEY (`noticia_id`) REFERENCES `noticias` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla copade_db.usuarios: ~1 rows (aproximadamente)
 INSERT INTO `usuarios` (`id`, `username`, `password`, `nombre`, `created_at`) VALUES

@@ -13,6 +13,9 @@ if (!$noticia) {
     exit;
 }
 
+// Obtener galería de imágenes
+$galeria = $db->fetchAll("SELECT * FROM noticias_galeria WHERE noticia_id = ? ORDER BY orden ASC", [$id]);
+
 $pageTitle = htmlspecialchars($noticia['titulo']) . ' - Fundación COPADES';
 include __DIR__ . '/../partials/header.php';
 ?>
@@ -32,9 +35,6 @@ include __DIR__ . '/../partials/header.php';
                 </span>
             </div>
             <h1 class="news-article-title"><?= htmlspecialchars($noticia['titulo']) ?></h1>
-            <?php if ($noticia['resumen']): ?>
-                <p class="news-article-subtitle"><?= htmlspecialchars($noticia['resumen']) ?></p>
-            <?php endif; ?>
         </div>
 
         <?php if ($noticia['imagen']): ?>
@@ -46,6 +46,19 @@ include __DIR__ . '/../partials/header.php';
         <div class="news-article-content">
             <?= $noticia['contenido'] ?>
         </div>
+
+        <?php if (count($galeria) > 0): ?>
+        <div class="news-article-gallery">
+            <h2 class="news-gallery-title"><i class="fas fa-images"></i> Galería de imágenes</h2>
+            <div class="gallery-mosaic">
+                <?php foreach ($galeria as $img): ?>
+                <a href="<?= BASE_URL ?>assets/uploads/<?= htmlspecialchars($img['imagen']) ?>" class="gallery-mosaic-item" target="_blank" rel="noopener">
+                    <img src="<?= BASE_URL ?>assets/uploads/<?= htmlspecialchars($img['imagen']) ?>" alt="Galería - <?= htmlspecialchars($noticia['titulo']) ?>">
+                </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
 
         <div class="news-article-footer">
             <div class="news-article-share">

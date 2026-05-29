@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $titulo    = trim($_POST['titulo'] ?? '');
     $fecha     = $_POST['fecha'] ?? date('Y-m-d');
-    $resumen   = trim($_POST['resumen'] ?? '');
     $contenido = $_POST['contenido'] ?? '';
 
     if (!$error && (!$titulo || !$contenido)) {
@@ -28,31 +27,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db = Database::getInstance();
         $imagenNombre = null;
 
-        // Procesar imagen
+        // Procesar imagen de portada
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
             $maxSize = 5 * 1024 * 1024; // 5MB
 
             if (!in_array($_FILES['imagen']['type'], $allowedTypes)) {
-                $error = 'La imagen debe ser JPG, PNG, WebP o GIF.';
+                $error = 'La imagen de portada debe ser JPG, PNG, WebP o GIF.';
             } elseif ($_FILES['imagen']['size'] > $maxSize) {
-                $error = 'La imagen no debe superar los 5MB.';
+                $error = 'La imagen de portada no debe superar los 5MB.';
             } else {
                 $ext = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagenNombre = uniqid('noticia_') . '.' . $ext;
                 $uploadPath = __DIR__ . '/../assets/uploads/' . $imagenNombre;
 
                 if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $uploadPath)) {
-                    $error = 'Error al subir la imagen.';
+                    $error = 'Error al subir la imagen de portada.';
                 }
             }
         }
 
         if (!$error) {
-            $db->insert(
-                "INSERT INTO noticias (titulo, fecha, resumen, contenido, imagen) VALUES (?, ?, ?, ?, ?)",
-                [$titulo, $fecha, $resumen, $contenido, $imagenNombre]
+            $noticiaId = $db->insert(
+                "INSERT INTO noticias (titulo, fecha, contenido, imagen) VALUES (?, ?, ?, ?)",
+                [$titulo, $fecha, $contenido, $imagenNombre]
             );
+
+            // Procesar imágenes de galería
+            if (!empty($_FILES['galeria']['name'][0])) {
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+                $maxSize = 5 * 1024 * 1024;
+                $orden = 0;
+
+                foreach ($_FILES['galeria']['name'] as $key => $name) {
+                    if ($_FILES['galeria']['error'][$key] !== UPLOAD_ERR_OK) continue;
+                    if (!in_array($_FILES['galeria']['type'][$key], $allowedTypes)) continue;
+                    if ($_FILES['galeria']['size'][$key] > $maxSize) continue;
+
+                    $ext = pathinfo($name, PATHINFO_EXTENSION);
+                    $galeriaNombre = uniqid('galeria_') . '.' . $ext;
+                    $uploadPath = __DIR__ . '/../assets/uploads/' . $galeriaNombre;
+
+                    if (move_uploaded_file($_FILES['galeria']['tmp_name'][$key], $uploadPath)) {
+                        $db->insert(
+                            "INSERT INTO noticias_galeria (noticia_id, imagen, orden) VALUES (?, ?, ?)",
+                            [$noticiaId, $galeriaNombre, $orden]
+                        );
+                        $orden++;
+                    }
+                }
+            }
+
             $_SESSION['success'] = 'Noticia creada exitosamente.';
             header('Location: noticias.php');
             exit;
@@ -207,13 +232,16 @@ body{
                 <div class="file-input-wrapper">
                     <input type="file" id="imagen" name="imagen" accept="image/jpeg,image/png,image/webp,image/gif">
                 </div>
-                <div class="file-hint">Formatos: JPG, PNG, WebP, GIF. Máximo 5MB.</div>
+                <div class="file-hint">Formatos: JPG, PNG, WebP, GIF. Máximo 5MB. Esta imagen será la portada de la noticia.</div>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="resumen">Resumen / Extracto</label>
-            <textarea id="resumen" name="resumen" placeholder="Breve resumen que aparecerá en la lista de noticias" rows="3"><?= htmlspecialchars($_POST['resumen'] ?? '') ?></textarea>
+            <label for="galeria">Galería de imágenes adicionales</label>
+            <div class="file-input-wrapper">
+                <input type="file" id="galeria" name="galeria[]" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+            </div>
+            <div class="file-hint">Puede seleccionar varias imágenes. Se mostrarán en un mosaico al final de la noticia. Formatos: JPG, PNG, WebP, GIF. Máximo 5MB cada una.</div>
         </div>
 
         <div class="form-group">

@@ -7,7 +7,13 @@ if (!isset($_SESSION['admin_id'])) {
 }
 
 $db = Database::getInstance();
-$noticias = $db->fetchAll("SELECT * FROM noticias ORDER BY fecha DESC, created_at DESC");
+$noticias = $db->fetchAll("
+    SELECT n.*, COUNT(ng.id) as galeria_count
+    FROM noticias n
+    LEFT JOIN noticias_galeria ng ON ng.noticia_id = n.id
+    GROUP BY n.id
+    ORDER BY n.fecha DESC, n.created_at DESC
+");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -159,14 +165,6 @@ body{
     font-size:13px;
     white-space:nowrap;
 }
-.noticias-table .news-resumen{
-    color:#666;
-    font-size:13px;
-    max-width:300px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-}
 .actions{
     display:flex;
     gap:8px;
@@ -243,10 +241,10 @@ body{
         <table>
             <thead>
                 <tr>
-                    <th>Imagen</th>
+                    <th>Portada</th>
                     <th>Título</th>
                     <th>Fecha</th>
-                    <th>Resumen</th>
+                    <th>Galería</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -262,7 +260,15 @@ body{
                     </td>
                     <td class="news-title"><?= htmlspecialchars($noticia['titulo']) ?></td>
                     <td class="news-date"><?= date('d/m/Y', strtotime($noticia['fecha'])) ?></td>
-                    <td class="news-resumen"><?= htmlspecialchars($noticia['resumen']) ?></td>
+                    <td>
+                        <?php if ($noticia['galeria_count'] > 0): ?>
+                            <span style="display:inline-flex;align-items:center;gap:6px;color:#009879;font-weight:500;font-size:13px;">
+                                <i class="fas fa-images"></i> <?= $noticia['galeria_count'] ?> foto(s)
+                            </span>
+                        <?php else: ?>
+                            <span style="color:#ccc;font-size:13px;">—</span>
+                        <?php endif; ?>
+                    </td>
                     <td>
                         <div class="actions">
                             <a href="noticias_editar.php?id=<?= $noticia['id'] ?>" class="btn-edit"><i class="fas fa-edit"></i> Editar</a>
