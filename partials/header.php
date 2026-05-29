@@ -27,7 +27,7 @@
     <ul class="menu" id="menu">
     <li><a href="<?= BASE_URL ?>">Inicio</a></li>
     <li class="has-submenu">
-        <a href="<?= BASE_URL ?>pages/quienessomos.php">¿Quienes Somos?</a>
+        <a href="<?= BASE_URL ?>pages/quienessomos.php">¿Quiénes Somos?</a>
         <ul class="submenu">
             <li><a href="<?= BASE_URL ?>pages/mision.php">Misión</a></li>
             <li><a href="<?= BASE_URL ?>pages/vision.php">Visión</a></li>

@@ -190,6 +190,7 @@ body{
     <nav class="sidebar-nav">
         <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
         <a href="noticias.php"><i class="fas fa-newspaper"></i> Noticias</a>
+        <a href="cambiar_password.php"><i class="fas fa-key"></i> Contraseña</a>
         <a href="<?= BASE_URL ?>"><i class="fas fa-globe"></i> Ver Sitio</a>
     </nav>
     <div class="sidebar-footer">

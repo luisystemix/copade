@@ -1,0 +1,3 @@
+BD: fundac33_copade_db
+User:  undac33_copade_usr
+PW: fund4c10n.c0p4d3

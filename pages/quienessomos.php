@@ -9,7 +9,7 @@
 <section class="section">
 <div class="container">
 
-<h2>¿Quienes Somos?</h2>
+<h2>¿Quiénes Somos?</h2>
 
 <p>
 La Fundación COPADES que significa comunidad, participación y desarrollo, domiciliada en la ciudad de La Paz, Bolivia, 
