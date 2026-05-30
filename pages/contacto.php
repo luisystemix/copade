@@ -15,14 +15,14 @@
 
             <div class="contact-info">
                 <h2>Contacto</h2>
-                <p>Estamos aquí para escucharte. Si tienes preguntas, sugerencias o deseas sumarte a nuestros proyectos, no dudes comunicarte y/o escribirnos.</p>
+                <p class="justify">Estamos aquí para escucharte. Si tienes preguntas, sugerencias o deseas sumarte a nuestros proyectos, no dudes comunicarte y/o escribirnos.</p>
 
                 <div class="contact-details">
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
                         <div>
                             <strong>Dirección:</strong>
-                            <p>Avenida 16 de julio esquina Colombia. Edificio Cámara Nacional de Comercio piso 8 oficina 811</p> <p>La Paz - Bolivia</p>
+                            <p class="justify">Avenida 16 de julio esquina Colombia. Edificio Cámara Nacional de Comercio piso 8 oficina 811</p> <p class="justify">La Paz - Bolivia</p>
                             <a href="https://maps.app.goo.gl/YKQbpwdDLpZ6ADkA7" target="_blank">Ver en Google Maps</a>
                         </div>
                     </div>

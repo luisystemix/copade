@@ -57,7 +57,7 @@
     </ul>
 </nav>
 
-<a href="#" class="btn-top">¡Súmate!</a>
+<a href="<?= BASE_URL ?>pages/sumate.php" class="btn-top">¡Súmate!</a>
 
 <div class="menu-toggle" id="menu-toggle">
 <span></span>

@@ -11,7 +11,7 @@
 
 <h2>Gobernanza y Cohesión</h2>
 
-<p>
+<p class="justify">
 Orientada al pilar de Comunidad, esta línea se enfoca en revitalizar los lazos sociales, 
 rescatar la identidad local y construir redes de apoyo mutuo para mejorar la convivencia y 
 resolver pacíficamente los conflictos internos.

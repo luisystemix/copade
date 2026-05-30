@@ -11,7 +11,7 @@
 
 <h2>Infraestructura y Habitat</h2>
 
-<p>
+<p class="justify">
 Dedicada a la mejora del entorno físico, trabaja junto a las bases en el diseño y 
 optimización de espacios públicos, acceso a servicios básicos y resiliencia ante el 
 cambio climático, garantizando condiciones de vida dignas para la comunidad.

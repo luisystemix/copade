@@ -48,7 +48,7 @@
     <div class="project-layout">
         <div class="project-copy">     
 
-            <p>
+            <p class="justify">
                 <strong>Construcción y funcionamiento de un albergue para niños con cáncer, en la ciudad de La Paz</strong>
             </p>
 

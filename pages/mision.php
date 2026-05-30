@@ -11,7 +11,7 @@
 
 <h2>Misión</h2>
 
-<p>
+<p class="justify">
 Fortalecer la participación ciudadana y el ejercicio pleno de derechos de poblaciones en riesgo, 
 víctimas de violencia, exclusión y marginación social, a través de la promoción del desarrollo 
 integral y sostenible.

@@ -11,7 +11,7 @@
 
 <h2>Educación y Capacitación</h2>
 
-<p>
+<p class="justify">
 Una línea transversal que fomenta la formación continua mediante talleres prácticos, 
 programas de alfabetización digital y educación financiera, dotando a la población de
 herramientas técnicas para autogestionar su progreso.

@@ -401,6 +401,18 @@ flex-direction:column;
 gap:24px;
 }
 
+/* Justificación de párrafos dentro de contact-details */
+.contact-details p{
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+/* Clase reutilizable para justificar párrafos en cualquier lugar */
+.justify{
+    text-align:justify;
+    text-justify:inter-word;
+}
+
 .contact-item{
 display:flex;
 align-items:flex-start;

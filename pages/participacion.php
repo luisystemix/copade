@@ -11,7 +11,7 @@
 
 <h2>Participación y Liderazgo</h2>
 
-<p>
+<p class="justify">
 Diseñada para activar la Participación, se centra en la capacitación técnico-política de líderes locales, 
 mujeres y jóvenes, asegurando su inclusión en la toma de decisiones públicas, 
 el control social y la gestión de sus propios recursos.

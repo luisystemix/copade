@@ -10,7 +10,7 @@
 <div class="container">
 
 <h2>Valores</h2>
-<p>
+<p class="justify">
 Abordamos los problemas sociales con una mirada creativa, flexible y orientada al futuro. 
 Creemos que el impacto se multiplica cuando trabajamos en red; por ello, fomentamos alianzas 
 estratégicas con gobiernos, empresas y la sociedad civil, combinando saberes y recursos para 

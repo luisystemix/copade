@@ -10,7 +10,7 @@
 <div class="container">
 
 <h2>Visión</h2>
-<p>
+<p class="justify">
 Nos constituimos en una institución sólida que posibilite el desarrollo integral, la participación 
 ciudadana y el ejercicio de los derechos de personas en situación de violencia, marginación y exclusión 
 social a través del abordaje integral, multidisciplinario e interinstitucional coordinado. 

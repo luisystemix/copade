@@ -11,7 +11,7 @@ defined('YOUTUBE_URL') || define('YOUTUBE_URL', '#');
 
 // BASE DE DATOS
 defined('DB_HOST') || define('DB_HOST', 'localhost');
-defined('DB_PORT') || define('DB_PORT', '3307');
+defined('DB_PORT') || define('DB_PORT', '3306');
 defined('DB_NAME') || define('DB_NAME', 'copade_db');
 defined('DB_USER') || define('DB_USER', 'root');
 defined('DB_PASS') || define('DB_PASS', '');

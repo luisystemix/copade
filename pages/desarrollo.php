@@ -11,7 +11,7 @@
 
 <h2>Desarrollo Sostenible</h2>
 
-<p>
+<p class="justify">
 Alineada con el Desarrollo, esta línea impulsa la soberanía alimentaria, el emprendimiento comunitario
 y los negocios verdes, implementando soluciones económicas que respeten el medio ambiente y 
 generen ingresos dignos a largo plazo.

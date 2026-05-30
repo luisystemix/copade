@@ -11,12 +11,12 @@
 
 <h2>Proyectos en Ejecución</h2>
 
-<p>
+<p class="justify">
     📍  Construcción y funcionamiento de un albergue para adultos mayores de la Sociedad San José, 
     en la ciudad de La Paz. Número de beneficiarios: 10.000 adultos mayores al año.
 </p>
 
-<p>
+<p class="justify">
     📍  Construcción y funcionamiento de un albergue para niños con cáncer, en la ciudad de La Paz.
     Número de beneficiarios: 11.000 niños con cáncer al año.
 </p>
@@ -27,7 +27,7 @@
 <img src="../assets/images/banner1.jpg">
 <div class="card-content">
 <h3>Nosotros</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p class="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 </div>
 
@@ -35,7 +35,7 @@
 <img src="../assets/images/banner2.jpg">
 <div class="card-content">
 <h3>Información</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p class="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 </div>
 
